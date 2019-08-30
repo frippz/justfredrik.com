@@ -1,15 +1,15 @@
 {
-  "css": {
-    "path": "css/00_variables.css",
-    "path": "css/basic.css",
-    "path": "css/footer.css",
-    "path": "css/header.css",
-    "path": "css/layout.css",
-    "path": "css/main.css",
-    "path": "css/print.css",
-    "path": "css/syntax.css"
-  },
-  "js": {
-    "path": "js/main.js"
-  }
+  "css": [
+    "/css/00_variables.css",
+    "/css/basic.css",
+    "/css/footer.css",
+    "/css/header.css",
+    "/css/layout.css",
+    "/css/main.css",
+    "/css/print.css",
+    "/css/syntax.css"
+  ],
+  "js": [
+    "/js/main.js"
+  ]
 }
