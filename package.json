@@ -1,0 +1,29 @@
+{
+  "name": "justfredrik.com",
+  "author": {
+    "name": "Fredrik Frodlund",
+    "email": "fredrik@frodlund.se",
+    "url": "https://justfredrik.com/"
+  },
+  "license": "MIT",
+  "version": "0.1.0",
+  "description": "The portfolio of Fredrik Frodlund",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:frippz/justfredrik.com.git"
+  },
+  "scripts": {
+    "prestart": "yarn",
+    "start": "eleventy --serve --port=5000",
+    "build": "eleventy"
+  },
+  "homepage": "https://justfredrik.com",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy-plugin-rss": "^1.0.7",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.1",
+    "luxon": "^1.12.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2"
+  }
+}

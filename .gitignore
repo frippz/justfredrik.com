@@ -1,0 +1,7 @@
+# Generated stuff
+dist
+_site
+_includes/sprite.svg
+
+# Node stuff
+node_modules

@@ -3,7 +3,7 @@ version: '3'
 services:
 
   node:
-    container_name: node
+    container_name: justfredrik_11ty
 
     build:
       context: .
@@ -20,4 +20,4 @@ services:
     ports:
       - '5000:5000'
 
-    # command: yarn start
+    command: yarn start
