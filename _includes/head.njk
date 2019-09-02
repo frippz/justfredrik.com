@@ -8,7 +8,7 @@
   <link rel="alternate" type="application/json" title="{{ site.title }}" href="/feed.json">
   {% include 'css.njk' %}
   <meta name="author" content="{{ site.author }}">
-  {% if page.description %}<meta name="description" content="{{ page.description }}{% if paginator.page > 1 %} (page {{ paginator.page }}){% endif %}">{% endif %}
+  {% if page.description %}<meta name="description" content="{{ page.description }}{% if pagination.page > 1 %} (page {{ pagination.page }}){% endif %}">{% endif %}
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@frippz">
   <meta name="twitter:creator" content="@frippz">

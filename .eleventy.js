@@ -4,8 +4,12 @@ const pluginRss = require('@11ty/eleventy-plugin-rss');
 const pluginSyntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 module.exports = function(eleventyConfig) {
+
+  // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
+
+  // Merge mixed data sources (see https://is.gd/UgJsju)
   eleventyConfig.setDataDeepMerge(true);
 
   // Layouts
@@ -32,13 +36,16 @@ module.exports = function(eleventyConfig) {
     return array.slice(0, n);
   });
 
+  // Collections
   eleventyConfig.addCollection('tagList', require('./_11ty/getTagList'));
 
+  // Copy static assets
   eleventyConfig.addPassthroughCopy('images');
   eleventyConfig.addPassthroughCopy('css');
   eleventyConfig.addPassthroughCopy('js');
+  eleventyConfig.addPassthroughCopy('dist');
 
-  /* Markdown Plugins */
+  // Markdown Plugins
   let markdownIt = require('markdown-it');
   let markdownItAnchor = require('markdown-it-anchor');
   let options = {
@@ -76,4 +83,3 @@ module.exports = function(eleventyConfig) {
     }
   };
 };
-

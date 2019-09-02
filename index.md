@@ -3,9 +3,7 @@ layout: default
 title: Hello World!
 ---
 
-# Hello World!
-
-Adipisicing ducimus sequi doloribus facere quos sunt Ullam odio vero quos deserunt deserunt? Aliquam eius vitae expedita quasi hic illo! Possimus inventore quos laborum aspernatur unde reprehenderit doloribus? Unde neque?
+Adipisicing _ducimus_ sequi doloribus **facere** quos sunt Ullam odio vero quos deserunt deserunt? [Aliquam](/labs/) eius vitae expedita quasi hic illo! Possimus inventore quos laborum aspernatur unde reprehenderit doloribus? Unde neque?
 
 * One
 * Two
