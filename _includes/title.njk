@@ -1,7 +1,7 @@
-{% if page.layout == "tags-page" %}
-Articles tagged with “{{ page.tag }}”
+{% if layout == "tags-page" %}
+Articles tagged with “{{ tag }}”
 {% else %}
-{{ page.title }}
+{{ title }}
 {% endif %}
   – {{ site.title }}
 {% if paginator.page > 1 %}
