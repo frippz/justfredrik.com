@@ -1,3 +1,0 @@
-# justfredrik.com
-
-

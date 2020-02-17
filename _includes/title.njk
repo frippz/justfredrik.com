@@ -1,9 +1,0 @@
-{% if layout == "tags-page" %}
-Articles tagged with “{{ tag }}”
-{% else %}
-{{ title }}
-{% endif %}
-  – {{ site.title }}
-{% if pagination.page > 1 %}
- (page {{ pagination.page }})
-{% endif %}
