@@ -18,7 +18,7 @@ jobs:
       - name: Checkout file
         uses: actions/checkout@v2
 
-      - name: Minify
+      - name: Minify HTML
         run: |
           sudo npm -g i html-minify
           htmlminify index.html -o index.html
