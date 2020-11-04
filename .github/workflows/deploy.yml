@@ -21,7 +21,7 @@ jobs:
       - name: Minify
         run: |
           sudo npm -g i html-minify
-          html-minify index.html
+          htmlminify index.html
 
       - name: Deploy to Amazon S3
         uses: reggionick/s3-deploy@v2
