@@ -18,6 +18,12 @@ jobs:
       - name: Checkout file
         uses: actions/checkout@v2
 
+      - name: Minify
+        uses: jossydevers/minify-js@v1.0.0
+        with:
+          directory: index.html
+          output: index.html
+
       - name: Deploy to Amazon S3
         uses: lbertenasco/s3-deploy@v1
         with:
