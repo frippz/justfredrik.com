@@ -5,7 +5,7 @@ on: [push]
 jobs:
   deploy:
 
-    name: Deploy to Netlify
+    name: Deploy to CloudFront
 
     runs-on: ubuntu-latest
 
