@@ -20,7 +20,7 @@ jobs:
 
       - name: Minify
         run: |
-          npm -g i html-minify
+          sudo npm -g i html-minify
           html-minify index.html
 
       - name: Deploy to Amazon S3
