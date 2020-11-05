@@ -25,7 +25,7 @@ jobs:
 
       - name: Timestamp build
         run: |
-          echo "<\!-- Deployed: `date` -->" >> index.html
+          echo "<!-- Deployed: `date` -->" >> index.html
 
       - name: Deploy to Amazon S3
         uses: reggionick/s3-deploy@v2.0.1
