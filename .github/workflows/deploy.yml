@@ -18,6 +18,17 @@ jobs:
       - name: Checkout file
         uses: actions/checkout@v2
 
+      - name: Set up caching for npm
+        id: cache-node_modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Minify HTML
         run: |
           sudo npm -g i html-minify
