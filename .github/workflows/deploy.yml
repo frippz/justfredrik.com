@@ -22,9 +22,7 @@ jobs:
         id: cache-npm
         uses: actions/cache@v2
         with:
-          path: |
-            ~/.npm
-            **/node_modules
+          path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
