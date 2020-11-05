@@ -23,6 +23,10 @@ jobs:
           sudo npm -g i html-minify
           htmlminify index.html -o index.html
 
+      - name: Timestamp build
+        run: |
+          echo "<\!-- Deployed: `date` -->" >> index.html
+
       - name: Deploy to Amazon S3
         uses: reggionick/s3-deploy@v2.0.1
         with:
