@@ -35,7 +35,7 @@ jobs:
           htmlminify index.html -o index.html
 
       - name: Deploy to Amazon S3
-        uses: reggionick/s3-deploy
+        uses: reggionick/s3-deploy@v2.0.1
         with:
           folder: .
           bucket: ${{ secrets.S3_BUCKET }}
