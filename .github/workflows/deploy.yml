@@ -29,6 +29,15 @@ jobs:
       - name: Timestamp build
         run: |
           echo "<!-- Deployed: `date` -->" >> index.html
+          
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: justfredrik-com
+          directory: .
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Deploy to Amazon S3
         uses: reggionick/s3-deploy@v3.0.0
