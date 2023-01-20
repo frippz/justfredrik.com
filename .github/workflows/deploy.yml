@@ -38,6 +38,7 @@ jobs:
           projectName: justfredrik
           directory: .
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
 
       - name: Deploy to Amazon S3
         uses: reggionick/s3-deploy@v3.0.0
