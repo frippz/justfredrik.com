@@ -8,7 +8,7 @@ on:
 jobs:
   deploy:
 
-    name: Deploy to CloudFront
+    name: Deploy to Cloudflare
 
     runs-on: ubuntu-latest
 
