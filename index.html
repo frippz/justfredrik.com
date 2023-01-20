@@ -76,12 +76,14 @@
     .derp a {
       display: block;
       text-decoration: none;
-      transition: transform 220ms ease-in-out;
+      transition: transform 220ms ease-in-out, opacity 500ms;
+      opacity: 0;
       transform-origin: center;
     }
 
     .derp a:hover,
     .derp a:focus {
+      opacity: 1;
       transform: scale(1.4);
     }
     </style>
