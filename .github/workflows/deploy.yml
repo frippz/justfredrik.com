@@ -35,17 +35,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: justfredrik
+          projectName: justfredrik-com
           directory: .
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: master
-
-      - name: Deploy to Amazon S3
-        uses: reggionick/s3-deploy@v3.0.0
-        with:
-          folder: .
-          bucket: ${{ secrets.S3_BUCKET }}
-          bucket-region: ${{ secrets.S3_BUCKET_REGION }}
-          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: /
-          delete-removed: true
