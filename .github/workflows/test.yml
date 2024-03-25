@@ -1,0 +1,26 @@
+---
+name: Test
+
+on: [pull_request]
+
+jobs:
+  test:
+    name: Build & run
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+
+      - name: Install Node packages
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npm run build
+
+      - name: Svelte check
+        run: npm run check
