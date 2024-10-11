@@ -17,7 +17,7 @@
   "devDependencies": {
     "@playwright/test": "1.48.0",
     "@sveltejs/adapter-auto": "3.2.5",
-    "@sveltejs/adapter-cloudflare": "4.7.2",
+    "@sveltejs/adapter-cloudflare": "4.7.3",
     "@sveltejs/kit": "2.6.4",
     "@sveltejs/vite-plugin-svelte": "3.1.2",
     "@types/eslint": "8.56.12",
