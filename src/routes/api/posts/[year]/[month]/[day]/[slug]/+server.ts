@@ -22,6 +22,7 @@ async function getPost(slug: string) {
 
 export async function GET({ params }: RequestEvent) {
   const { slug } = params;
+  console.log({ slug });
   const post = await getPost(slug);
 
   if (post) {
