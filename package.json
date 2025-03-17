@@ -15,7 +15,7 @@
     "test:unit": "vitest"
   },
   "devDependencies": {
-    "@playwright/test": "1.51.0",
+    "@playwright/test": "1.51.1",
     "@sveltejs/adapter-auto": "3.3.1",
     "@sveltejs/adapter-cloudflare": "4.9.0",
     "@sveltejs/kit": "2.19.2",
