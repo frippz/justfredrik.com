@@ -1,0 +1,169 @@
+/**
+ * Main layout
+ */
+
+@media screen {
+
+  body::before {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    height: 0.5rem;
+    content: "";
+    background-color: var(--body-top-border);
+  }
+
+  /**
+   * Landmark content
+   *
+   * Used in any main landmarks
+   */
+  .landmark-content {
+    max-width: 34em;
+    padding: 0 1em;
+    margin: 0 auto;
+  }
+
+  /**
+   * Header
+   */
+  #header {
+    padding-bottom: 2em;
+  }
+
+  /**
+   * Main landmark
+   */
+  main {
+    padding-bottom: 4em;
+  }
+
+}
+
+@media only screen {
+
+  /**
+   * Sticky footer
+   */
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+}
+
+@media only screen and (min-width: 32em) {
+
+  /* Inline header content when there’s room */
+  .header-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  /* Reset main title spacing */
+  .main-title {
+    padding-bottom: 0;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+
+  @supports (display: grid) {
+
+    body {
+      display: grid;
+      grid-template-rows:
+        [main-start] auto
+        [footer-start] minmax(16rem, min-content)
+        [main-end];
+      grid-template-columns:
+        [main-start] 1fr
+        [content-start] calc(30em + 5vw)
+        [content-end] 1fr
+        [main-end];
+    }
+
+    #header {
+      grid-column: main-start / content-start;
+      padding-bottom: unset;
+      text-align: right;
+    }
+
+    .header-content {
+      padding-right: 2em;
+    }
+
+    main .landmark-content {
+      padding-left: 2em;
+    }
+
+    main {
+      grid-column: content-start / content-end;
+    }
+
+    #footer {
+      grid-row: footer-start / main-end;
+      grid-column: main-start / main-end;
+      margin-top: 0;
+    }
+
+    /* Unset landmark content max-width */
+    main .landmark-content {
+      max-width: unset;
+    }
+
+    /* Unset flex header */
+    .header-content {
+      position: sticky;
+      top: 2rem;
+      display: block;
+      max-width: none;
+      padding-top: 1em;
+      padding-bottom: 3em;
+      margin: 0 0 2em;
+    }
+
+    /* Pretty gradient border in header */
+    .header-content::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      content: "";
+      background-image:
+        linear-gradient(
+          0deg,
+          transparent 0%,
+          currentcolor 20%,
+          currentcolor 80%,
+          transparent 100%
+        );
+    }
+
+    /* Man navigation */
+    nav {
+      margin-top: 2em;
+    }
+
+    #main-nav {
+      flex-direction: column;
+    }
+  }
+}
+
+/* Apple Watch only? How can this come back to bite me in the ass? */
+@media only screen and (max-width: 22em) and (max-height: 357px) {
+
+  .landmark-content {
+    padding: 0 0.5em;
+  }
+}

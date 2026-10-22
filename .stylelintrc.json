@@ -1,0 +1,41 @@
+{
+  "extends": ["stylelint-config-recess-order"],
+  "ignoreFiles": ["**/build/**", "**/.svelte-kit/**", "**/node_modules/**"],
+  "overrides": [
+    {
+      "files": ["**/*.svelte"],
+      "customSyntax": "postcss-html"
+    },
+    {
+      "files": ["apps/web/static/css/*.css"],
+      "rules": {
+        "order/properties-order": null
+      }
+    }
+  ],
+  "rules": {
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        "except": ["blockless-after-blockless"],
+        "ignore": ["after-comment"]
+      }
+    ],
+    "block-no-empty": true,
+    "color-hex-length": "short",
+    "color-named": "never",
+    "color-no-invalid-hex": true,
+    "comment-whitespace-inside": "always",
+    "declaration-block-no-shorthand-property-overrides": true,
+    "function-calc-no-unspaced-operator": true,
+    "function-url-quotes": "always",
+    "rule-empty-line-before": [
+      "always",
+      {
+        "ignore": ["after-comment"]
+      }
+    ],
+    "selector-pseudo-element-colon-notation": "double",
+    "selector-type-case": "lower"
+  }
+}
