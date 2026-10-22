@@ -3,13 +3,7 @@ import { sveltekit } from '@sveltejs/kit/vite'
 import { defineConfig } from 'vite'
 
 // Linked from the site frame but not built yet. Remove each path as its route lands.
-const pendingPaths = new Set([
-  '/about/',
-  '/labs/',
-  '/tags/',
-  '/feed.xml',
-  '/feed.json',
-])
+const pendingPaths = new Set(['/about/', '/labs/'])
 
 export default defineConfig({
   plugins: [
