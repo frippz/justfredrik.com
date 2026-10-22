@@ -1,0 +1,43 @@
+{
+  "name": "cms",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "build": "cross-env NODE_OPTIONS=\"--no-deprecation --max-old-space-size=8000\" next build --webpack",
+    "check": "tsc --noEmit",
+    "test": "cross-env NODE_OPTIONS=--no-deprecation vitest run",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "generate:types": "pnpm run generate:types:cloudflare && pnpm run generate:types:payload",
+    "generate:types:cloudflare": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "generate:types:payload": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "deploy": "pnpm run deploy:database && pnpm run deploy:app",
+    "deploy:app": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy:database": "cross-env NODE_ENV=production PAYLOAD_SECRET=ignore payload migrate && wrangler d1 execute D1 --command 'PRAGMA optimize' --remote",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview"
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "^1.20.13",
+    "@payloadcms/db-d1-sqlite": "3.91.0",
+    "@payloadcms/next": "3.91.0",
+    "@payloadcms/richtext-lexical": "3.91.0",
+    "@payloadcms/storage-r2": "3.91.0",
+    "@payloadcms/ui": "3.91.0",
+    "cross-env": "10.1.0",
+    "graphql": "^16.8.1",
+    "next": "16.4.2",
+    "payload": "3.91.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "cms-types": "workspace:*",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5",
+    "wrangler": "4.151.3"
+  }
+}
