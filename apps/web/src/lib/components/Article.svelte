@@ -4,6 +4,7 @@
   import { postPath, slugify } from '#lib/posts'
   import type { RenderedPost } from '#lib/server/body'
   import { site } from '#lib/site'
+  import { tagPath } from '#lib/tags'
   import '#lib/styles/line-numbers.css'
 
   interface Props {
@@ -67,6 +68,22 @@
     <!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered at build time from the CMS -->
     {@html post.html}
   </div>
+
+  {#if post.tags.length > 0}
+    <footer>
+      <p class="post-tags">
+        <strong>Keywords:</strong>
+        <!-- eslint-disable svelte/no-useless-mustaches -- Prettier would drop a bare space -->
+        <span itemprop="keywords"
+          >{#each post.tags as tag, i (tag.slug)}{#if i > 0}{', '}{/if}<a
+              href={tagPath(tag)}
+              rel="tag">{tag.name}</a
+            >{/each}</span
+        >
+        <!-- eslint-enable svelte/no-useless-mustaches -->
+      </p>
+    </footer>
+  {/if}
 
   {#if divider}
     <Icon icon="divider" classes="article-end" />

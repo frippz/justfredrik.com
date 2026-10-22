@@ -2,7 +2,7 @@ import { CONTENT_SOURCE } from '$app/env/private'
 import { fixtureSource } from './fixture'
 import type { ContentSource } from './types'
 
-export type { ContentSource, Post, PostPath } from './types'
+export type { ContentSource, Post, PostPath, Tag } from './types'
 
 const sources = {
   fixture: fixtureSource,
