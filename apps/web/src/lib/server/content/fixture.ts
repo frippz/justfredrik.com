@@ -25,7 +25,7 @@ const tags = {
 // Eleven published Posts, so pagination has a first, a middle and a last page,
 // plus a Draft that must never show up anywhere. One Post has every body block.
 // Tags are used by up to seven Posts, so the tag cloud has several sizes, and
-// one Tag is used only by the Draft.
+// one Tag is used only by the Draft. One Post has an updated date.
 const posts: FixturePost[] = [
   {
     status: 'published',
@@ -89,6 +89,7 @@ const posts: FixturePost[] = [
     slug: 'feeds-are-not-dead',
     description: 'Why this blog still ships Atom and JSON Feed.',
     publishedAt: '2019-04-30T08:00:00.000Z',
+    revisedAt: '2020-02-01T12:00:00.000Z',
     body: paragraphs('Why this blog still ships Atom and JSON Feed.'),
     tags: [tags.jsonFeed, tags.rss],
   },

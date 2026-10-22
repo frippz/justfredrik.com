@@ -5,7 +5,7 @@ import { tagCloud, tagPath } from '#lib/tags'
 
 export const prerender = true
 
-// Grows as routes land: Labs.
+// Grows as routes land: About, Grid and the Labs (#257).
 export async function GET() {
   const posts = await contentSource().getPosts()
   const totalPages = pageCount(posts)

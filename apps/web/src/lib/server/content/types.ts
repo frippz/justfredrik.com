@@ -6,6 +6,8 @@ export interface Post {
   description: string
   /** ISO 8601 */
   publishedAt: string
+  /** ISO 8601, when the author last revised the Post */
+  revisedAt?: string
   /** Lexical rich text, with Figure images populated */
   body: PayloadPost['body']
   /** In the order the author picked them */
