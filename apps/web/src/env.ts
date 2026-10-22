@@ -1,6 +1,6 @@
 import { defineEnvVars } from '@sveltejs/kit/env'
 
-const contentSources = ['fixture'] as const
+const contentSources = ['fixture', 'payload'] as const
 
 export const variables = defineEnvVars({
   CONTENT_SOURCE: {
@@ -15,5 +15,11 @@ export const variables = defineEnvVars({
       }
       return source as (typeof contentSources)[number]
     },
+  },
+  PAYLOAD_URL: {
+    description:
+      'The Payload CMS the payload content source reads from. Defaults to https://cms.justfredrik.com.',
+    static: true,
+    schema: (value) => new URL(value || 'https://cms.justfredrik.com').href,
   },
 })

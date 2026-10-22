@@ -31,6 +31,16 @@ After changing the content model, run `pnpm generate:types` and add a migration 
 
 ## Content
 
-The site reaches content only through `apps/web/src/lib/server/content`. The `CONTENT_SOURCE` environment variable picks the implementation; `fixture` (the default) is the only one so far.
+The site reaches content only through `apps/web/src/lib/server/content`. The `CONTENT_SOURCE` environment variable picks the implementation:
+
+- `fixture` (the default): the Posts in `fixture-posts.ts`, which the Playwright tests are written against
+- `payload`: Payload's REST API at `PAYLOAD_URL` (default `https://cms.justfredrik.com`), read anonymously, so only published Posts reach the site
+
+To build against a local CMS with the same content as the fixtures, run `pnpm --filter cms seed`. It replaces all Posts, Tags and Media in the local database. Then start the CMS and run:
+
+```sh
+CONTENT_SOURCE=payload PAYLOAD_URL=http://localhost:3000 pnpm build
+pnpm test
+```
 
 The CSS in `apps/web/static/css/` and the SVG sprite are copied verbatim from frippz.se. Don't reformat them.
