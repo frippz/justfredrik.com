@@ -1,9 +1,10 @@
+import { postPath } from '#lib/posts'
 import type { ContentSource, Post } from './types'
 
 type FixturePost = Post & { status: 'published' | 'draft' }
 
-// More than five published Posts so pagination has something to do, plus a
-// Draft that must never show up anywhere.
+// Eleven published Posts, so pagination has a first, a middle and a last page,
+// plus a Draft that must never show up anywhere.
 const posts: FixturePost[] = [
   {
     status: 'published',
@@ -56,6 +57,34 @@ const posts: FixturePost[] = [
   },
   {
     status: 'published',
+    title: 'Fixture: Skip links still matter',
+    slug: 'skip-links-still-matter',
+    description: 'The first focusable element on the page.',
+    publishedAt: '2018-10-05T08:00:00.000Z',
+  },
+  {
+    status: 'published',
+    title: 'Fixture: Print stylesheets',
+    slug: 'print-stylesheets',
+    description: 'Paper is a medium too.',
+    publishedAt: '2017-05-18T08:30:00.000Z',
+  },
+  {
+    status: 'published',
+    title: 'Fixture: On browser support',
+    slug: 'on-browser-support',
+    description: 'Support is not a binary choice.',
+    publishedAt: '2015-12-07T08:00:00.000Z',
+  },
+  {
+    status: 'published',
+    title: 'Fixture: On styling your anchors',
+    slug: 'on-styling-your-anchors',
+    description: 'Links deserve more than an underline.',
+    publishedAt: '2014-12-06T08:00:00.000Z',
+  },
+  {
+    status: 'published',
     title: 'Fixture: Hello again',
     slug: 'hello-again',
     description: 'The oldest fixture Post.',
@@ -69,5 +98,10 @@ export const fixtureSource: ContentSource = {
       .filter((post) => post.status === 'published')
       .map(({ status, ...post }) => post)
       .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+  },
+
+  async getPost({ year, month, day, slug }) {
+    const path = `/${year}/${month}/${day}/${slug}/`
+    return (await this.getPosts()).find((post) => postPath(post) === path)
   },
 }
