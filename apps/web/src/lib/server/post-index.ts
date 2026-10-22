@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit'
 import { paginate } from '#lib/posts'
+import { renderPost } from '#lib/server/body'
 import { contentSource } from '#lib/server/content'
 
 /** Page data for `/` and `/pageN/`, which show the same index one page at a time */
@@ -12,6 +13,9 @@ export async function loadPostIndex(page: number) {
     description:
       'Articles and musings on web development, web standards, accessibility, usability and anything else related to the web or web technologies.',
     pageNumber: page,
-    pagination,
+    pagination: {
+      ...pagination,
+      posts: await Promise.all(pagination.posts.map(renderPost)),
+    },
   }
 }

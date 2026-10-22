@@ -1,5 +1,6 @@
 import { error } from '@sveltejs/kit'
 import { postPath } from '#lib/posts'
+import { renderPost } from '#lib/server/body'
 import { contentSource } from '#lib/server/content'
 import type { EntryGenerator, PageServerLoad } from './$types'
 
@@ -13,5 +14,9 @@ export const load: PageServerLoad = async ({ params }) => {
   const post = await contentSource().getPost(params)
   if (!post) error(404, 'Not found')
 
-  return { title: post.title, description: post.description, post }
+  return {
+    title: post.title,
+    description: post.description,
+    post: await renderPost(post),
+  }
 }

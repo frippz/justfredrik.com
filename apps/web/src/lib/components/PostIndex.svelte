@@ -2,8 +2,9 @@
   import Article from '#lib/components/Article.svelte'
   import Icon from '#lib/components/Icon.svelte'
   import type { Pagination } from '#lib/posts'
+  import type { RenderedPost } from '#lib/server/body'
 
-  let { pagination }: { pagination: Pagination } = $props()
+  let { pagination }: { pagination: Pagination<RenderedPost> } = $props()
 </script>
 
 {#each pagination.posts as post, i (post.slug)}

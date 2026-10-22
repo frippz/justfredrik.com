@@ -1,0 +1,49 @@
+/**
+ * Code block line numbers
+ *
+ * frippz.se's `main.css` only shows line numbers under `.js`, because its
+ * JavaScript added the `.ln` spans. These spans are rendered at build time,
+ * so the same rules apply without the `.js` gate.
+ */
+
+@media screen {
+  /* Printouts keep code plain, without line numbers */
+  .highlighter-rouge div.highlight {
+    overflow: hidden;
+  }
+
+  .highlighter-rouge pre {
+    display: flex;
+    align-items: flex-start;
+    padding-left: 0;
+  }
+
+  .highlighter-rouge code {
+    order: 2;
+    padding-right: 1em;
+    counter-reset: linenumber;
+  }
+
+  .highlighter-rouge .ln {
+    position: sticky;
+    left: 0;
+    flex: 0 0 auto;
+    order: 1;
+    padding-right: 0.75em;
+    padding-left: 1em;
+    margin-top: 0;
+    margin-right: 0.75em;
+    color: var(--line-numbers-text);
+    text-align: right;
+    user-select: none;
+    background-color: var(--code-background);
+    border-right: 1px solid var(--line-numbers-border);
+  }
+
+  .highlighter-rouge .ln span::before {
+    display: block;
+    margin-top: 0;
+    content: counter(linenumber);
+    counter-increment: linenumber;
+  }
+}

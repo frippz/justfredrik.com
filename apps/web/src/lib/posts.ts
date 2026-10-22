@@ -19,11 +19,11 @@ export const slugify = (text: string) =>
     .replace(/^-|-$/g, '')
     .toLowerCase()
 
-export const pageCount = (posts: Post[]) =>
+export const pageCount = (posts: unknown[]) =>
   Math.max(1, Math.ceil(posts.length / postsPerPage))
 
-export interface Pagination {
-  posts: Post[]
+export interface Pagination<P = Post> {
+  posts: P[]
   page: number
   totalPages: number
   olderPath?: string
@@ -31,7 +31,10 @@ export interface Pagination {
 }
 
 /** One page of Posts, or undefined when the page doesn't exist */
-export function paginate(posts: Post[], page: number): Pagination | undefined {
+export function paginate<P>(
+  posts: P[],
+  page: number,
+): Pagination<P> | undefined {
   const totalPages = pageCount(posts)
   if (!Number.isInteger(page) || page < 1 || page > totalPages) return
 
