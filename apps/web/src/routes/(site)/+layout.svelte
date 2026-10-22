@@ -1,43 +1,12 @@
 <script lang="ts">
-  import { page } from '$app/state'
   import Icon from '#lib/components/Icon.svelte'
+  import SiteHead from '#lib/components/SiteHead.svelte'
   import { externalLinks, feedLinks, site } from '#lib/site'
 
   let { children } = $props()
-
-  const pageSuffix = $derived(
-    (page.data.pageNumber ?? 1) > 1 ? ` (page ${page.data.pageNumber})` : '',
-  )
 </script>
 
-<svelte:head>
-  <title>{page.data.title} – {site.title}{pageSuffix}</title>
-  <link rel="canonical" href="{site.url}{page.url.pathname}" />
-  <link
-    rel="alternate"
-    type="application/feed+json"
-    title={site.title}
-    href="{site.url}/feed.json"
-  />
-  <link
-    rel="alternate"
-    type="application/atom+xml"
-    title={site.title}
-    href="{site.url}/feed.xml"
-  />
-  <meta name="author" content={site.author} />
-  {#if page.data.description}
-    <meta name="description" content="{page.data.description}{pageSuffix}" />
-  {/if}
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content={site.twitter} />
-  <meta name="twitter:creator" content={site.twitter} />
-  <meta name="twitter:title" content="{page.data.title} – {site.title}" />
-  {#if page.data.description}
-    <meta name="twitter:description" content={page.data.description} />
-  {/if}
-  <meta name="twitter:image" content={site.avatar} />
-</svelte:head>
+<SiteHead />
 
 <header id="header">
   <div class="landmark-content header-content">

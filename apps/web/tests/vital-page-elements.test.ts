@@ -19,7 +19,10 @@ test('every sitemap URL has the vital page elements', async ({
   const paths = await sitemapPaths(request)
   expect(paths.length).toBeGreaterThan(0)
 
-  for (const path of paths) {
+  // Labs are shown outside the site frame
+  for (const path of paths.filter(
+    (path) => !path.startsWith('/labs/') || path === '/labs/',
+  )) {
     await test.step(path, async () => {
       await page.goto(path)
 
