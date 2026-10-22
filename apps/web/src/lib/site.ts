@@ -2,6 +2,8 @@ export const site = {
   title: 'justfredrik.com',
   url: 'https://justfredrik.com',
   author: 'Fredrik Frodlund',
+  twitter: '@frippz',
+  avatar: 'https://justfredrik.com/images/just-me-640w.jpg',
 }
 
 export const externalLinks = [

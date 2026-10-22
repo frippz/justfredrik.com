@@ -1,11 +1,18 @@
+import { pageCount, pagePath, postPath } from '#lib/posts'
+import { contentSource } from '#lib/server/content'
 import { site } from '#lib/site'
-
-// Grows as routes land: Posts, Tags, pages, Labs.
-const paths = ['/']
 
 export const prerender = true
 
-export function GET() {
+// Grows as routes land: Tags, Labs.
+export async function GET() {
+  const posts = await contentSource().getPosts()
+  const totalPages = pageCount(posts)
+  const paths = [
+    ...Array.from({ length: totalPages }, (_, i) => pagePath(i + 1)),
+    ...posts.map(postPath),
+  ]
+
   const urls = paths
     .map((path) => `  <url><loc>${site.url}${path}</loc></url>`)
     .join('\n')
