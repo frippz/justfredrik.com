@@ -9,6 +9,8 @@
   "scripts": {
     "build": "pnpm --filter web build",
     "test": "pnpm --filter web test",
+    "test:cms": "pnpm --filter cms test",
+    "generate:types": "pnpm --filter cms generate:types",
     "lint": "pnpm run lint:js && pnpm run lint:css && pnpm run lint:format && pnpm -r check",
     "lint:js": "eslint .",
     "lint:css": "stylelint \"**/*.{css,svelte}\"",

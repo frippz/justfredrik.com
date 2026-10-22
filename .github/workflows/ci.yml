@@ -29,6 +29,9 @@ jobs:
       - name: Lint
         run: pnpm lint
 
+      - name: Run CMS tests
+        run: pnpm test:cms
+
       - name: Build against fixture content
         env:
           CONTENT_SOURCE: fixture
