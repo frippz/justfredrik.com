@@ -1,0 +1,345 @@
+/**
+ * Main stylesheet
+ *
+ * To be broken up into smaller components, because who the hell
+ * can manage mega stylesheets anymore?
+ */
+
+@media screen {
+
+  /**
+   * Articles
+   */
+
+  /* Offset article in focus */
+  article:target::before {
+    display: block;
+    padding-top: 2em;
+    margin-top: -2em;
+    content: "";
+  }
+
+  /* Heading links */
+  article h2 a:link,
+  article h2 a:visited {
+    color: var(--body-text);
+    text-decoration: none;
+  }
+
+  article h2 a:focus {
+    display: block;
+    color: var(--article-link-invert);
+    text-decoration-color: var(--article-link-invert);
+  }
+
+  article h2 a:hover + .svg-icon,
+  article h2 a:focus + .svg-icon,
+  article h2 a:active + .svg-icon {
+    fill: var(--article-link);
+  }
+
+  /* Inline article links */
+  article p a,
+  article p a:visited {
+    font-weight: 600;
+    text-decoration-thickness: 0.145em;
+    text-decoration-color: var(--article-link);
+  }
+
+  article p a:hover {
+    color: var(--article-link);
+    text-decoration-color: var(--article-link);
+  }
+
+  article a:focus,
+  article p a:focus {
+    color: var(--article-link-invert);
+    background-color: var(--article-link);
+    outline: 0;
+  }
+
+  article footer {
+    padding-right: 0.5em;
+    padding-left: 0.5em;
+    border-top: 1px solid var(--faint-border);
+  }
+
+  .article-end {
+    display: block;
+    margin: 3.75em auto;
+    fill: var(--faint-border);
+  }
+
+  .article-link {
+    text-decoration: none;
+  }
+
+  /* Bookmarklet */
+  a.bookmarklet {
+    padding: 0.25em 0.5em;
+    color: var(--article-link-invert);
+    text-decoration: none;
+    background-color: var(--article-link);
+    border-radius: 0.25em;
+  }
+
+  /* Icon for external links */
+  [rel="external"] + .svg-icon {
+    width: 0.65em;
+    height: 0.65em;
+    margin: 0;
+    vertical-align: middle;
+    fill: var(--article-header-decoration);
+  }
+
+  /* Post meta data */
+  .post-info {
+    display: block;
+    margin-top: -1em;
+    font-family: var(--title-font);
+    font-size: 0.85em;
+    font-weight: 400;
+  }
+
+  .post-tags {
+    margin-top: 0.5em;
+  }
+
+  .post-tags strong {
+    font-weight: 600;
+  }
+
+  /* Figure grid */
+  .figure-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+  }
+
+  /* Images with captions */
+  figure.image {
+    display: grid;
+    justify-content: center;
+    margin: 2em 0;
+  }
+
+  figure.image img {
+    display: block;
+  }
+
+  figure.image figcaption {
+    padding: 0.5em 0;
+    margin: 0;
+    font-size: 0.9em;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /**
+   * Code highlighting
+   */
+  .js div.highlight {
+    overflow: hidden;
+  }
+
+  .highlighter-rouge {
+    margin: 0;
+  }
+
+  .highlighter-rouge pre {
+    padding: 1em;
+    margin-top: 1.5em;
+    overflow-x: auto;
+    background: var(--code-background);
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .js .highlighter-rouge pre {
+    padding-left: 0;
+  }
+
+  /* Inline code */
+  p > code,
+  li > code {
+    padding: 0.1em 0.2em;
+    background: var(--inline-code-background);
+    border: 1px solid var(--inline-code-border);
+  }
+
+  /* Line numbers (requires JS) */
+  .js .highlighter-rouge pre {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .js .highlighter-rouge code {
+    order: 2;
+    padding-right: 1em;
+    counter-reset: linenumber;
+  }
+
+  .js .ln {
+    position: sticky;
+    left: 0;
+    flex: 0 0 auto;
+    order: 1;
+    padding-right: 0.75em;
+    padding-left: 1em;
+    margin-top: 0;
+    margin-right: 0.75em;
+    color: var(--line-numbers-text);
+    text-align: right;
+    user-select: none;
+    background-color: var(--code-background);
+    border-right: 1px solid var(--line-numbers-border);
+  }
+
+  .js .ln span::before {
+    display: block;
+    margin-top: 0;
+    content: counter(linenumber);
+    counter-increment: linenumber;
+  }
+
+  .js .ln + code {
+    margin-top: 0;
+  }
+
+  /**
+   * Custom error page (404)
+   */
+  .not-found main {
+    padding-top: 4em;
+    text-align: center;
+  }
+
+  .not-found article .svg-icon {
+    display: block;
+    width: 16em;
+    height: 16em;
+    margin: 0 auto;
+    opacity: 0.2;
+    fill: var(--body-text);
+  }
+
+  /**
+   * Blockquotes
+   */
+  blockquote {
+    padding-left: 0.75em;
+    margin-right: 1em;
+    margin-left: 1em;
+    border-left: 4px solid var(--faint-border);
+  }
+
+  /**
+   * Footnotes
+   *
+   * Inspired by an article by Hugo Giraudel
+   * (http://www.sitepoint.com/accessible-footnotes-css/)
+   */
+
+  /* Initialiazing a 'footnotes' counter on the wrapper */
+  article {
+    counter-reset: footnotes;
+  }
+
+  /* Inline footnotes references */
+  [aria-describedby="footnotes"] {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+    counter-increment: footnotes;
+    outline: none;
+  }
+
+  /* Numbered references */
+  [aria-describedby="footnotes"]::after {
+    margin-left: 2px;
+    font-size: 0.5em;
+    color: inherit;
+    text-decoration: underline;
+    vertical-align: super;
+    cursor: pointer;
+    content: "[" counter(footnotes) "]";
+  }
+
+  /* Resetting the default focused styles on the number */
+  [aria-describedby="footnotes"]:focus::after {
+    outline: thin dotted;
+    outline-offset: 2px;
+  }
+
+  /**
+   * Dyslexic mode toggle
+   */
+  .dyslexic-mode {
+    font-size: 1.4em;
+    line-height: 2;
+    letter-spacing: 0.25em;
+  }
+
+  .dyslexic-mode .landmark-content {
+    max-width: 26em;
+  }
+
+  /* Toggle button */
+  .toggle-dyslexic-mode {
+    position: absolute;
+    top: 1.5em;
+    right: 0;
+    margin-top: 0;
+    font-size: 0.65em;
+  }
+
+  /**
+   * Tags list
+   */
+  .tag-item small {
+    display: block;
+    margin-top: 0;
+  }
+
+  .tag-item + .tag-item {
+    margin-top: 0.5em;
+  }
+
+  /**
+   * Tag cloud
+   */
+  .tag-cloud [class^="set"] {
+    padding-right: 0.75rem;
+  }
+
+  .tag-cloud .set-2 {
+    font-size: 1.2em;
+  }
+
+  .tag-cloud .set-3 {
+    font-size: 1.4em;
+  }
+
+  .tag-cloud .set-4 {
+    font-size: 1.6em;
+  }
+
+  .tag-cloud .set-4 {
+    font-size: 1.8em;
+  }
+
+  /* Toggle button */
+  [data-toggle] {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    margin: 0;
+    font-size: 0.7em;
+  }
+}
+
+/* Apple Watch only? How can this come back to bite me in the ass? */
+@media only screen and (max-width: 22em) and (max-height: 357px) {
+
+  .highlight code {
+    font-size: 4.5vw;
+  }
+}

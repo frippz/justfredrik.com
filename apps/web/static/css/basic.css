@@ -1,0 +1,326 @@
+/**
+ * basic.css
+ */
+
+@media all {
+
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
+  /**
+   * The Lobotomized Owl
+   */
+  * + * {
+    margin-top: 1.75em;
+  }
+
+  /* Default owl reset */
+  body,
+  br,
+  li,
+  dt,
+  dd,
+  th,
+  td,
+  option {
+    margin-top: 0;
+  }
+
+  /**
+   * Smooooooth scrolling
+   */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /**
+   * Reset body & html spacing
+   */
+  body,
+  html {
+    padding: 0;
+    margin: 0;
+  }
+
+  /**
+   * Reset box sizing
+   */
+  html {
+    box-sizing: border-box;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  /**
+   * Tables
+   */
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  table,
+  th,
+  td {
+    border: 0;
+  }
+
+  th,
+  td {
+    padding: 0.125em 0.2em;
+    vertical-align: top;
+  }
+
+  caption,
+  th {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  /**
+   * Images
+   */
+  img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+  }
+
+  /**
+   * Body styling
+   */
+  html,
+  body {
+    color: var(--body-text);
+    background-color: var(--body-background);
+  }
+
+  /**
+   * Typography
+   */
+  html {
+    font-family: "Avenir Next", "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body {
+    font-size: calc(1.2em + 0.30vw);
+  }
+
+  @media (min-width: 32em) {
+
+    body {
+      font-size: calc(1.1em + 0.30vw);
+    }
+  }
+
+  code,
+  kbd,
+  pre {
+    font-family: Menlo, Consolas, monospace;
+  }
+
+  pre,
+  li > code,
+  p > code {
+    font-size: 0.8em;
+  }
+
+  /**
+   * Headings
+   */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 2em 0 0.5em;
+    font-weight: 400;
+    line-height: 1.125;
+  }
+
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+
+  h1 + *,
+  h2 + *,
+  h3 + *,
+  h4 + *,
+  h5 + *,
+  h6 + * {
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.9em;
+  }
+
+  h3 {
+    font-size: 1.6em;
+  }
+
+  h4 {
+    font-size: 1.4em;
+  }
+
+  h5,
+  h6 {
+    font-size: 1.2em;
+  }
+
+  /**
+   * Lists
+   */
+  ul[class],
+  ol[class] {
+    padding: 0;
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin-left: 2em;
+  }
+
+  /**
+   *Links
+   */
+  a,
+  a:visited {
+    color: inherit;
+    border-radius: 0.25em;
+  }
+
+  a:hover,
+  a:focus,
+  a:active {
+    color: inherit;
+  }
+
+  /**
+   * Emphasis
+   */
+  b,
+  strong {
+    font-weight: 600;
+  }
+
+  i,
+  em {
+    font-style: italic;
+  }
+
+  /**
+   * Abbreviation
+   */
+  abbr {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    cursor: help;
+  }
+
+  /**
+   * General button styles
+   */
+  button {
+    padding: 0.2em 0.5em;
+    font-size: inherit;
+    color: var(--default-button-text);
+    background: var(--default-button);
+    border: 0;
+    border-radius: 0.25em;
+  }
+
+  /**
+   * Hidden elements (both visually and for AT:s)
+   */
+  [hidden] {
+    display: none;
+  }
+
+  /**
+   * Visually hidden (still visible to AT:s)
+   */
+  .offscreen {
+    position: absolute;
+    top: auto;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /**
+   * Inline SVG icons
+   */
+  .svg-icon {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: -0.2em;
+    fill: currentcolor;
+  }
+
+  /**
+   * Selection styling
+   */
+  ::selection {
+    color: var(--selection-text) !important;
+    background: var(--selection-bg) !important;
+  }
+}
+
+@media only screen and (min-width: 20em) {
+
+  /**
+   * Float images on wider viewports
+   */
+  img.left,
+  img.right {
+    max-width: 40vw;
+  }
+
+  img.left {
+    float: left;
+    margin: 0 1em 0.5em 0;
+  }
+
+  img.right {
+    float: right;
+    margin: 0 0 0.5em 1em;
+  }
+}
+
+@media only screen and (min-width: 25em) {
+
+  img.left,
+  img.right {
+    max-width: 50vw;
+  }
+}

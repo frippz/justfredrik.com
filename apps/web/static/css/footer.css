@@ -1,0 +1,123 @@
+/**
+ * Footer
+ */
+
+@media screen {
+
+  #footer {
+    padding: 2em 0;
+    margin-top: 6em;
+    font-family: var(--title-font);
+    color: var(--footer-text);
+    background-color: var(--footer-text-invert);
+  }
+
+  #footer a,
+  #footer a:visited {
+    padding: 0.25em;
+    color: currentcolor;
+    text-decoration: none;
+  }
+
+  #footer a:hover,
+  #footer a:active {
+    color: var(--footer-text-hover);
+  }
+
+  /* Invert colors on :focus */
+  #footer a:focus {
+    color: var(--footer-background);
+    background-color: var(--footer-text);
+    outline: 0;
+  }
+
+  #footer .svg-icon {
+    display: inline-block;
+    margin-right: 0.25em;
+    fill: var(--base-color);
+  }
+
+  /* Footer links */
+  .footer-links {
+    padding: 0;
+    margin-left: 0;
+    list-style: none;
+  }
+
+  .footer-links ~ .footer-links,
+  .footer-links li + li {
+    margin-top: 1em;
+  }
+
+  /* Copyright */
+  .copyright {
+    display: block;
+    width: 100%;
+    margin-top: 4em;
+    font-size: 0.75em;
+    text-align: center;
+  }
+
+  /**
+   * Older & newer articles navigation
+   */
+  .more-articles {
+    display: flex;
+    margin: 4em -0.25em 0;
+  }
+
+  .more-articles a {
+    padding: 0 0.25em;
+    margin-top: 0;
+  }
+
+  .more-articles a:hover,
+  .more-articles a:active {
+    color: var(--article-link);
+  }
+
+  .more-articles a:focus {
+    color: var(--body-text-invert);
+    background-color: var(--body-text);
+    outline: 0;
+  }
+
+  .more-articles .newer {
+    margin-left: auto;
+  }
+
+  .more-articles .older {
+    margin-right: auto;
+  }
+
+  .more-articles .svg-icon {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+@media only screen and (min-width: 22em) {
+
+  /* Switch to flexbox layout in footer */
+  #footer .landmark-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* Footer links */
+  .footer-links,
+  .footer-links ~ .footer-links {
+    display: inline-block;
+    margin-top: 0;
+    vertical-align: top;
+  }
+
+  .footer-links.external-links {
+    margin-right: auto;
+  }
+
+  .footer-links.feeds {
+    margin-left: auto;
+  }
+}

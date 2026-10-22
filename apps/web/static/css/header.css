@@ -1,0 +1,88 @@
+/**
+ * Header
+ */
+
+@media screen {
+
+  /* Main title */
+  .main-title {
+    padding: 0.5em 0 0;
+    font-size: 2.8em;
+    line-height: 1.125;
+    color: var(--base-color);
+    white-space: nowrap;
+  }
+
+  .main-title span {
+    font-size: 0.6em;
+  }
+
+  .main-title a {
+    text-decoration: none;
+  }
+
+  .main-title a:focus {
+    color: var(--header-text-invert);
+    background-color: var(--header-text);
+    outline: 0;
+  }
+
+  /**
+   * Navigation
+   */
+  #main-nav {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  #main-nav li {
+    display: block;
+  }
+
+  #main-nav a {
+    font-size: 1.3em;
+    text-decoration: none;
+  }
+
+  #main-nav a:hover,
+  #main-nav a:active {
+    text-decoration: underline;
+    text-decoration-thickness: 0.145em;
+    text-decoration-color: var(--article-link);
+  }
+
+  #main-nav a:focus {
+    color: var(--header-text-invert);
+    background-color: var(--header-text);
+    outline: 0;
+  }
+}
+
+@media only screen and (min-width: 20em) {
+
+  /**
+   * Inline menu items
+   */
+  #main-nav {
+    display: flex;
+  }
+
+  #main-nav li {
+    display: inline;
+  }
+
+  #main-nav li + li {
+    margin-left: 1em;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+
+  @supports (display: grid) {
+
+    #main-nav li + li {
+      margin-top: 0.5em;
+    }
+  }
+}

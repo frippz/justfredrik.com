@@ -1,0 +1,11 @@
+{
+  "extends": "$app/tsconfig",
+  "compilerOptions": {
+    // Mirrors package.json "imports", which TypeScript won't resolve extensionless
+    "paths": {
+      "#lib": ["./src/lib"],
+      "#lib/*": ["./src/lib/*"]
+    }
+  },
+  "include": ["src", "tests", "*"]
+}

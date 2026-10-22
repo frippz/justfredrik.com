@@ -1,0 +1,7 @@
+pnpm-lock.yaml
+**/build/
+**/.svelte-kit/
+**/test-results/
+**/playwright-report/
+# Copied verbatim from frippz.se
+apps/web/static/

@@ -1,48 +1,26 @@
-# Astro Starter Kit: Basics
+# justfredrik.com
 
-```sh
-npm create astro@latest -- --template basics
-```
+The blog of Fredrik Frodlund, successor to frippz.se. See `GLOSSARY.md` and `docs/adr/` for the domain language and architecture decisions.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+A pnpm workspace on Node 24:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- `apps/web`: the site, a SvelteKit app prerendered to static files with `adapter-static`
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## Commands
 
-## 🚀 Project Structure
+Run from the repo root:
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command       | Action                                         |
+| :------------ | :--------------------------------------------- |
+| `pnpm build`  | Build the site to `apps/web/build/`            |
+| `pnpm test`   | Run the Playwright tests against the build     |
+| `pnpm lint`   | ESLint, Stylelint, Prettier and `svelte-check` |
+| `pnpm format` | Format everything with Prettier                |
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Start the dev server with `pnpm --filter web dev`.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Content
 
-## 🧞 Commands
+The site reaches content only through `apps/web/src/lib/server/content`. The `CONTENT_SOURCE` environment variable picks the implementation; `fixture` (the default) is the only one so far.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The CSS in `apps/web/static/css/` and the SVG sprite are copied verbatim from frippz.se. Don't reformat them.
