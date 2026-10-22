@@ -1,16 +1,19 @@
 import { pageCount, pagePath, postPath } from '#lib/posts'
 import { contentSource } from '#lib/server/content'
 import { site } from '#lib/site'
+import { tagCloud, tagPath } from '#lib/tags'
 
 export const prerender = true
 
-// Grows as routes land: Tags, Labs.
+// Grows as routes land: Labs.
 export async function GET() {
   const posts = await contentSource().getPosts()
   const totalPages = pageCount(posts)
   const paths = [
     ...Array.from({ length: totalPages }, (_, i) => pagePath(i + 1)),
     ...posts.map(postPath),
+    '/tags/',
+    ...tagCloud(posts).map(({ tag }) => tagPath(tag)),
   ]
 
   const urls = paths

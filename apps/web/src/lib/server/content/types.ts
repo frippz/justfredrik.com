@@ -8,6 +8,13 @@ export interface Post {
   publishedAt: string
   /** Lexical rich text, with Figure images populated */
   body: PayloadPost['body']
+  /** In the order the author picked them */
+  tags: Tag[]
+}
+
+export interface Tag {
+  name: string
+  slug: string
 }
 
 export interface ContentSource {
