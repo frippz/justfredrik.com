@@ -1,10 +1,11 @@
 import { postPath } from '#lib/posts'
+import { everyBlockBody, paragraphs } from './fixture-body'
 import type { ContentSource, Post } from './types'
 
 type FixturePost = Post & { status: 'published' | 'draft' }
 
 // Eleven published Posts, so pagination has a first, a middle and a last page,
-// plus a Draft that must never show up anywhere.
+// plus a Draft that must never show up anywhere. One Post has every body block.
 const posts: FixturePost[] = [
   {
     status: 'published',
@@ -12,6 +13,9 @@ const posts: FixturePost[] = [
     slug: 'focus-styles-that-respect-your-brand',
     description: 'Making keyboard focus visible without fighting the design.',
     publishedAt: '2024-03-14T08:00:00.000Z',
+    body: paragraphs(
+      'Making keyboard focus visible without fighting the design.',
+    ),
   },
   {
     status: 'published',
@@ -19,6 +23,7 @@ const posts: FixturePost[] = [
     slug: 'a-circular-progress-bar-in-plain-css',
     description: 'Conic gradients, custom properties and no JavaScript.',
     publishedAt: '2023-11-02T08:00:00.000Z',
+    body: everyBlockBody,
   },
   {
     status: 'draft',
@@ -26,6 +31,7 @@ const posts: FixturePost[] = [
     slug: 'half-written-thoughts-on-view-transitions',
     description: 'This Draft must never be visible on the site.',
     publishedAt: '2024-05-01T08:00:00.000Z',
+    body: paragraphs('This Draft must never be visible on the site.'),
   },
   {
     status: 'published',
@@ -33,6 +39,7 @@ const posts: FixturePost[] = [
     slug: 'dark-mode-with-a-single-media-query',
     description: 'Swapping custom properties under prefers-color-scheme.',
     publishedAt: '2023-06-20T08:00:00.000Z',
+    body: paragraphs('Swapping custom properties under prefers-color-scheme.'),
   },
   {
     status: 'published',
@@ -40,6 +47,7 @@ const posts: FixturePost[] = [
     slug: 'the-lobotomized-owl-ten-years-later',
     description: 'Is `* + *` still the best spacing reset around?',
     publishedAt: '2022-09-08T08:00:00.000Z',
+    body: paragraphs('Is `* + *` still the best spacing reset around?'),
   },
   {
     status: 'published',
@@ -47,6 +55,7 @@ const posts: FixturePost[] = [
     slug: 'accessible-footnotes',
     description: 'CSS counters and aria-describedby for footnotes.',
     publishedAt: '2021-01-17T08:00:00.000Z',
+    body: paragraphs('CSS counters and aria-describedby for footnotes.'),
   },
   {
     status: 'published',
@@ -54,6 +63,7 @@ const posts: FixturePost[] = [
     slug: 'feeds-are-not-dead',
     description: 'Why this blog still ships Atom and JSON Feed.',
     publishedAt: '2019-04-30T08:00:00.000Z',
+    body: paragraphs('Why this blog still ships Atom and JSON Feed.'),
   },
   {
     status: 'published',
@@ -61,6 +71,7 @@ const posts: FixturePost[] = [
     slug: 'skip-links-still-matter',
     description: 'The first focusable element on the page.',
     publishedAt: '2018-10-05T08:00:00.000Z',
+    body: paragraphs('The first focusable element on the page.'),
   },
   {
     status: 'published',
@@ -68,6 +79,7 @@ const posts: FixturePost[] = [
     slug: 'print-stylesheets',
     description: 'Paper is a medium too.',
     publishedAt: '2017-05-18T08:30:00.000Z',
+    body: paragraphs('Paper is a medium too.'),
   },
   {
     status: 'published',
@@ -75,6 +87,7 @@ const posts: FixturePost[] = [
     slug: 'on-browser-support',
     description: 'Support is not a binary choice.',
     publishedAt: '2015-12-07T08:00:00.000Z',
+    body: paragraphs('Support is not a binary choice.'),
   },
   {
     status: 'published',
@@ -82,6 +95,7 @@ const posts: FixturePost[] = [
     slug: 'on-styling-your-anchors',
     description: 'Links deserve more than an underline.',
     publishedAt: '2014-12-06T08:00:00.000Z',
+    body: paragraphs('Links deserve more than an underline.'),
   },
   {
     status: 'published',
@@ -89,6 +103,7 @@ const posts: FixturePost[] = [
     slug: 'hello-again',
     description: 'The oldest fixture Post.',
     publishedAt: '2014-02-11T08:00:00.000Z',
+    body: paragraphs('The oldest fixture Post.'),
   },
 ]
 

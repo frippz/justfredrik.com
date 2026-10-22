@@ -1,9 +1,13 @@
+import type { Post as PayloadPost } from 'cms-types'
+
 export interface Post {
   title: string
   slug: string
   description: string
   /** ISO 8601 */
   publishedAt: string
+  /** Lexical rich text, with Figure images populated */
+  body: PayloadPost['body']
 }
 
 export interface ContentSource {

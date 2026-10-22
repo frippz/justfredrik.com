@@ -2,11 +2,12 @@
   import Icon from '#lib/components/Icon.svelte'
   import { formatDate, isoDate } from '#lib/format'
   import { postPath, slugify } from '#lib/posts'
-  import type { Post } from '#lib/server/content'
+  import type { RenderedPost } from '#lib/server/body'
   import { site } from '#lib/site'
+  import '#lib/styles/line-numbers.css'
 
   interface Props {
-    post: Post
+    post: RenderedPost
     /** In a listing, the heading links to the Post's own page */
     linked?: boolean
     /** Ends with frippz.se's divider, for all but the last Post in a listing */
@@ -62,9 +63,9 @@
     <meta itemprop="description" content={post.description} />
   </header>
 
-  <!-- Placeholder until Post bodies are rendered -->
   <div itemprop="articleBody">
-    <p>{post.description}</p>
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -- rendered at build time from the CMS -->
+    {@html post.html}
   </div>
 
   {#if divider}
