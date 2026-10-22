@@ -22,6 +22,11 @@ test('the sitemap lists every public page and no Drafts', async ({
   ).toHaveLength(11)
   expect(paths).toContain('/tags/')
   expect(paths.filter((path) => /^\/tags\/[^/]+\/$/.test(path))).toHaveLength(9)
+  expect(paths).toEqual(expect.arrayContaining(['/about/', '/grid/', '/labs/']))
+  expect(
+    paths.filter((path) => /^\/labs\/[^/]+\.html$/.test(path)),
+  ).toHaveLength(4)
+  expect(paths.some((path) => path.includes('404'))).toBe(false)
 
   expect(paths.some((path) => path.includes('half-written-thoughts'))).toBe(
     false,

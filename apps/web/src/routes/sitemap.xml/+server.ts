@@ -1,3 +1,4 @@
+import { labPath, labs } from '#lib/labs'
 import { pageCount, pagePath, postPath } from '#lib/posts'
 import { contentSource } from '#lib/server/content'
 import { site } from '#lib/site'
@@ -5,7 +6,6 @@ import { tagCloud, tagPath } from '#lib/tags'
 
 export const prerender = true
 
-// Grows as routes land: About, Grid and the Labs (#257).
 export async function GET() {
   const posts = await contentSource().getPosts()
   const totalPages = pageCount(posts)
@@ -14,6 +14,10 @@ export async function GET() {
     ...posts.map(postPath),
     '/tags/',
     ...tagCloud(posts).map(({ tag }) => tagPath(tag)),
+    '/about/',
+    '/grid/',
+    '/labs/',
+    ...labs.map(labPath),
   ]
 
   const urls = paths
