@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "justfredrik",
+  "compatibility_date": "2026-10-01",
+  // The prerendered site, served without a Worker script (ADR 0001)
+  "assets": {
+    "directory": "./build",
+    "not_found_handling": "404-page",
+  },
+  // Served on workers.dev until launch (#262)
+  "workers_dev": true,
+}

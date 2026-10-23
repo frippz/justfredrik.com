@@ -5,6 +5,7 @@ import { Code } from '../blocks/Code'
 import { Figure } from '../blocks/Figure'
 import { Html } from '../blocks/Html'
 import { slugField } from '../fields/slug'
+import { deployAfterChange, deployAfterDelete } from '../hooks/deployOnPublish'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -29,6 +30,8 @@ export const Posts: CollectionConfig = {
         return data
       },
     ],
+    afterChange: [deployAfterChange],
+    afterDelete: [deployAfterDelete],
   },
   fields: [
     {
