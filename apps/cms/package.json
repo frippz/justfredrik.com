@@ -9,6 +9,7 @@
     "test": "cross-env NODE_OPTIONS=--no-deprecation vitest run",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
     "seed": "cross-env NODE_OPTIONS=--no-deprecation payload run src/seed/index.ts",
+    "import:frippz": "cross-env NODE_OPTIONS=--no-deprecation payload run src/import/index.ts",
     "generate:types": "pnpm run generate:types:cloudflare && pnpm run generate:types:payload",
     "generate:types:cloudflare": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "generate:types:payload": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -33,12 +34,15 @@
     "react-dom": "19.3.1"
   },
   "devDependencies": {
+    "@types/mdast": "^4.0.4",
     "@types/node": "^26.6.5",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "cms-types": "workspace:*",
+    "mdast-util-from-markdown": "^2.1.0",
     "typescript": "^6.0.3",
     "vitest": "^5.0.5",
-    "wrangler": "4.151.3"
+    "wrangler": "4.151.3",
+    "yaml": "^2.9.1"
   }
 }
