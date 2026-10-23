@@ -8,6 +8,10 @@ on:
   repository_dispatch:
     types: [content-changed]
 
+# Checkout is the only step that uses GITHUB_TOKEN; Cloudflare has its own token
+permissions:
+  contents: read
+
 # Deploys run one at a time, so consecutive publishes don't race. Pull
 # requests only cancel their own older runs.
 concurrency:
