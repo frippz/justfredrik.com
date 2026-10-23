@@ -59,14 +59,16 @@ jobs:
           name: playwright-report
           path: apps/web/playwright-report/
 
+      # Off until production is ready: set the DEPLOY_ENABLED repository
+      # variable to true to turn deploys on
       - name: Build against Payload
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
         env:
           CONTENT_SOURCE: payload
         run: pnpm build
 
       - name: Deploy the site
-        if: github.event_name != 'pull_request'
+        if: github.event_name != 'pull_request' && vars.DEPLOY_ENABLED == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
