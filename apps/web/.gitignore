@@ -2,3 +2,4 @@
 /build
 /test-results
 /playwright-report
+/.wrangler

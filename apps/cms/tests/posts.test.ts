@@ -4,12 +4,21 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import { paragraph, payloadInstance } from './payload'
 
 let payload: Payload
+let startedAt: string
 
 beforeAll(async () => {
   payload = await payloadInstance()
+  startedAt = new Date().toISOString()
 })
 
+// The other test files share the database and expect it without these
 afterAll(async () => {
+  for (const collection of ['posts', 'tags'] as const) {
+    await payload.delete({
+      collection,
+      where: { createdAt: { greater_than_equal: startedAt } },
+    })
+  }
   await payload.destroy()
 })
 

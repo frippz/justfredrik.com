@@ -44,3 +44,9 @@ pnpm test
 ```
 
 The CSS in `apps/web/static/css/` and the SVG sprite are copied verbatim from frippz.se. Don't reformat them.
+
+## Deploy
+
+The CI workflow deploys the site on every push to master and whenever the CMS sends a `content-changed` `repository_dispatch` (ADR 0001). After lint, the CMS tests and the Playwright tests pass, it builds against Payload and runs `wrangler deploy` in `apps/web`, which serves `build/` as Workers static assets. Runs are serialized, and a failed step stops the deploy.
+
+The CMS dispatches when a Post is published, edited and published again, unpublished, or deleted while published. Saving a Draft doesn't. It needs `GITHUB_DISPATCH_TOKEN`, a GitHub token that can send `repository_dispatch` to this repo, as a Worker secret; without it, the CMS logs a warning and doesn't dispatch. The workflow needs the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` Actions secrets. The Payload build and deploy steps only run when the `DEPLOY_ENABLED` repository variable is `true`; until then, CI stops after the tests.
