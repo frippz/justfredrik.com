@@ -1,6 +1,6 @@
 import { postPath } from '#lib/posts'
-import { renderPost } from '#lib/server/body'
-import { escapeHtml } from '#lib/server/body/escape'
+import { renderPost } from '#lib/body'
+import { escapeHtml } from '#lib/body/escape'
 import { contentSource } from '#lib/server/content'
 import { site } from '#lib/site'
 

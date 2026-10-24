@@ -58,13 +58,29 @@ const cloudflare =
     ? await getCloudflareContextFromWrangler()
     : await getCloudflareContext({ async: true })
 
+// This CMS, and the site whose /preview/ page renders the Post being edited
+const serverURL =
+  process.env.SERVER_URL ||
+  (isProduction ? 'https://cms.justfredrik.com' : 'http://localhost:3000')
+const siteURL =
+  process.env.SITE_URL ||
+  (isProduction ? 'https://justfredrik.com' : 'http://localhost:5173')
+
 export default buildConfig({
   admin: {
     user: Users.slug,
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      collections: ['posts'],
+      url: ({ data }) => `${siteURL}/preview/?id=${data.id}`,
+    },
   },
+  // The preview page populates Tags and Media through the API, as the editor.
+  // Cookie-authenticated requests from any other origin are refused.
+  cors: [siteURL],
+  csrf: [serverURL, siteURL],
   collections: [Posts, Tags, Media, Users],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

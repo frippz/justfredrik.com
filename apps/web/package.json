@@ -15,6 +15,7 @@
     "deploy": "wrangler deploy"
   },
   "devDependencies": {
+    "@payloadcms/live-preview": "3.91.0",
     "@playwright/test": "^1.64.1",
     "@sveltejs/adapter-static": "^4.0.0",
     "@sveltejs/kit": "^3.1.0",

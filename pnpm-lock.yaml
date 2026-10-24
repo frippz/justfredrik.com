@@ -275,6 +275,9 @@ importers:
 
   apps/web:
     devDependencies:
+      '@payloadcms/live-preview':
+        specifier: 3.91.0
+        version: 3.91.0
       '@playwright/test':
         specifier: ^1.64.1
         version: 1.64.1
@@ -1878,6 +1881,9 @@ packages:
     peerDependencies:
       graphql: ^16.8.1
       payload: 3.91.0
+
+  '@payloadcms/live-preview@3.91.0':
+    resolution: {integrity: sha512-f0Q9XxI3k1oa+6Jj+mCVaNhoMuAvNAOxW056k/eYXjVPdS5wBjVaKwbxdoRJV29oQwBHyemXZTpGQnMo6fZLnw==}
 
   '@payloadcms/next@3.91.0':
     resolution: {integrity: sha512-jjgJpDEXFSIxPnTClbMtWSgs5mQP6/JvPAo6a9xW7UegvuBbvc7yxjmrRPh4EN3OazbRHlyalZfxw9cHXlHdHQ==}
@@ -6804,6 +6810,8 @@ snapshots:
       tsx: 4.23.15
     transitivePeerDependencies:
       - typescript
+
+  '@payloadcms/live-preview@3.91.0': {}
 
   '@payloadcms/next@3.91.0(@types/react@19.3.0)(graphql@16.14.2)(monaco-editor@0.57.0)(next@16.4.2(@playwright/test@1.64.1)(@types/node@26.6.5)(babel-plugin-macros@3.1.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(sass@1.77.4))(payload@3.91.0(graphql@16.14.2)(supports-color@10.2.2)(typescript@6.0.3))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(supports-color@10.2.2)(typescript@6.0.3)':
     dependencies:

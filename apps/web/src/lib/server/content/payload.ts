@@ -1,4 +1,4 @@
-import { PAYLOAD_URL } from '$app/env/private'
+import { PAYLOAD_URL } from '$app/env/public'
 import type { Post as PayloadPost, Tag as PayloadTag } from 'cms-types'
 import { postPath } from '#lib/posts'
 import type { ContentSource, Post, Tag } from './types'

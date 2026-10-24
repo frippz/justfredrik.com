@@ -33,3 +33,20 @@ test('every sitemap URL has the vital page elements', async ({
     })
   }
 })
+
+test('no public page ships JavaScript', async ({ page, request }) => {
+  const paths = await sitemapPaths(request)
+
+  for (const path of [...paths, '/404.html']) {
+    await test.step(path, async () => {
+      await page.goto(path)
+
+      // Labs have inline scripts of their own, but none of SvelteKit's
+      await expect(
+        page.locator(
+          'script[src], script[type="module"], link[rel="modulepreload"]',
+        ),
+      ).toHaveCount(0)
+    })
+  }
+})

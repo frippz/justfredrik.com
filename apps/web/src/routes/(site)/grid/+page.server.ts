@@ -1,4 +1,4 @@
-import { renderCode } from '#lib/server/body/code'
+import { renderCode } from '#lib/body/code'
 import type { PageServerLoad } from './$types'
 
 // The suggested markup for each lab, highlighted like a Post's Code blocks

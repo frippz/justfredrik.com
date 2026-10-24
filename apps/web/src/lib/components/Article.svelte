@@ -2,7 +2,7 @@
   import Icon from '#lib/components/Icon.svelte'
   import { formatDate, isoDate } from '#lib/format'
   import { postPath, slugify } from '#lib/posts'
-  import type { RenderedPost } from '#lib/server/body'
+  import type { RenderedPost } from '#lib/body'
   import { site } from '#lib/site'
   import { tagPath } from '#lib/tags'
   import '#lib/styles/line-numbers.css'
