@@ -27,6 +27,8 @@ Start the site's dev server with `pnpm --filter web dev`.
 
 To run it locally, put a secret in `apps/cms/.env` (see `.env.example`), then run `pnpm --filter cms dev` and open <http://localhost:3000/admin>. Wrangler emulates D1 and R2 in `apps/cms/.wrangler/`, and Payload pushes schema changes to that database as you go. The first visit asks you to create the admin user.
 
+Live Preview on a Post frames the site's `/preview/` page (ADR 0004), so run the site's dev server with `PAYLOAD_URL=http://localhost:3000 pnpm --filter web dev` alongside it. The CMS expects the site on <http://localhost:5173>; set `SITE_URL` (and `SERVER_URL`, for the CMS itself) if either runs elsewhere. Against any CMS but the production one, Figures load from the CMS itself, without `srcset`.
+
 After changing the content model, run `pnpm generate:types` and add a migration with `pnpm --filter cms payload migrate:create <name>`. Deploys apply migrations with `payload migrate`.
 
 ## Content
