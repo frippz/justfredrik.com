@@ -8,5 +8,5 @@ The site is prerendered with SvelteKit's `adapter-static` and served as Workers 
 
 ## Consequences
 
-- There is no live preview of Drafts.
+- No page can show a Draft at build time. Live Preview renders Drafts in the editor's browser instead (ADR 0004).
 - Published content must be publicly readable through Payload's API so the build needs no secret.

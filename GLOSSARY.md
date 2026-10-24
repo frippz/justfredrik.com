@@ -16,6 +16,10 @@ _Avoid_: Category, topic, label
 A Post that has been saved but not published; it is not visible on the blog.
 _Avoid_: Unpublished post, WIP
 
+**Live Preview**:
+A Post or Draft shown as it would appear on the blog, beside it while it is being edited, including changes not yet saved.
+_Avoid_: Preview mode, draft preview
+
 **Lab**:
 A self-contained interactive front-end demo with a short explanatory note, shown outside the blog's usual page frame.
 _Avoid_: Experiment, demo, playground
