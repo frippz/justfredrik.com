@@ -18,7 +18,8 @@ export const variables = defineEnvVars({
   },
   PAYLOAD_URL: {
     description:
-      'The Payload CMS the payload content source reads from. Defaults to https://cms.justfredrik.com.',
+      'The Payload CMS the payload content source reads from, and the only origin /preview/ accepts Posts from. Defaults to https://cms.justfredrik.com.',
+    public: true,
     static: true,
     schema: (value) => new URL(value || 'https://cms.justfredrik.com').href,
   },

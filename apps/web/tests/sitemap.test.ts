@@ -27,6 +27,7 @@ test('the sitemap lists every public page and no Drafts', async ({
     paths.filter((path) => /^\/labs\/[^/]+\.html$/.test(path)),
   ).toHaveLength(4)
   expect(paths.some((path) => path.includes('404'))).toBe(false)
+  expect(paths).not.toContain('/preview/')
 
   expect(paths.some((path) => path.includes('half-written-thoughts'))).toBe(
     false,

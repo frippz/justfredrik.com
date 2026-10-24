@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit'
 import { postPath } from '#lib/posts'
-import { renderPost } from '#lib/server/body'
+import { renderPost } from '#lib/body'
 import { contentSource } from '#lib/server/content'
 import type { EntryGenerator, PageServerLoad } from './$types'
 

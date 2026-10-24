@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit'
 import { paginate } from '#lib/posts'
-import { renderPost } from '#lib/server/body'
+import { renderPost } from '#lib/body'
 import { contentSource } from '#lib/server/content'
 
 /** Page data for `/` and `/pageN/`, which show the same index one page at a time */

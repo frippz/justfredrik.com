@@ -56,7 +56,12 @@ function linkHref({ fields }: LinkNode) {
     if (fields.doc?.relationTo !== 'posts' || typeof value !== 'object') {
       throw new Error('Internal links must point to a populated Post')
     }
-    return postPath({ publishedAt: value.publishedAt!, slug: value.slug! })
+    if (!value.publishedAt || !value.slug) {
+      throw new Error(
+        `Internal link to "${value.title}", which isn't published`,
+      )
+    }
+    return postPath({ publishedAt: value.publishedAt, slug: value.slug })
   }
   return fields.url ?? ''
 }
