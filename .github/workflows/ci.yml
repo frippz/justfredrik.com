@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   test:
-    name: Lint, build, test & deploy
+    name: Lint, build & test
     runs-on: ubuntu-latest
 
     steps:
